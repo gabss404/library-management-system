@@ -1,112 +1,102 @@
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
-        Biblioteca biblioteca = new Biblioteca();
+        Library library = new Library();
         Scanner sc = new Scanner(System.in);
-        int escolha;
+        int choice;
 
         do {
-            exibirMenu();
-            escolha = sc.nextInt();
+            showMenu();
+            choice = sc.nextInt();
             sc.nextLine();
 
-            switch (escolha) {
+            switch (choice) {
                 case 1:
-                    cadastrarLivro(sc, biblioteca);
+                    registerBook(sc, library);
                     break;
                 case 2:
-                    cadastrarUsuario(sc, biblioteca);
+                    registerUser(sc, library);
                     break;
                 case 3:
-                    emprestarLivro(sc, biblioteca);
+                    borrowBook(sc, library);
                     break;
                 case 4:
-                    devolverLivro(sc, biblioteca);
+                    returnBook(sc, library);
                     break;
                 case 5:
-                    listarLivros(biblioteca);
+                    listBooks(library);
                     break;
                 case 0:
-                    System.out.println("Saindo...");
+                    System.out.println("Exiting...");
                     break;
                 default:
-                    System.out.println("Opção inválida!");
+                    System.out.println("Invalid option!");
             }
-        } while (escolha != 0);
+        } while (choice != 0);
 
         sc.close();
     }
 
-    private static void exibirMenu() {
-        System.out.println("\n--- Biblioteca ---");
-        System.out.println("1 - Cadastrar Livro");
-        System.out.println("2 - Cadastrar Usuário");
-        System.out.println("3 - Emprestar Livro");
-        System.out.println("4 - Devolver Livro");
-        System.out.println("5 - Listar Livros");
-        System.out.println("0 - Sair");
-        System.out.print("Escolha uma opção: ");
+    private static void showMenu() {
+        System.out.println("\n--- Library ---");
+        System.out.println("1 - Register Book");
+        System.out.println("2 - Register User");
+        System.out.println("3 - Borrow Book");
+        System.out.println("4 - Return Book");
+        System.out.println("5 - List Books");
+        System.out.println("0 - Exit");
+        System.out.print("Choose an option: ");
     }
 
-    private static void cadastrarLivro(Scanner sc, Biblioteca biblioteca) {
-        System.out.print("ID do livro: ");
+    private static void registerBook(Scanner sc, Library library) {
+        System.out.print("Book ID: ");
         int id = sc.nextInt();
         sc.nextLine();
-
-        System.out.print("Título: ");
-        String titulo = sc.nextLine();
-
-        System.out.print("Autor: ");
-        String autor = sc.nextLine();
-
-        biblioteca.cadastrarLivro(new Livro(id, titulo, autor));
-        System.out.println("Livro cadastrado com sucesso!");
+        System.out.print("Title: ");
+        String title = sc.nextLine();
+        System.out.print("Author: ");
+        String author = sc.nextLine();
+        library.registerBook(new Book(id, title, author));
+        System.out.println("Book registered successfully!");
     }
 
-    private static void cadastrarUsuario(Scanner sc, Biblioteca biblioteca) {
-        System.out.print("ID do usuário: ");
+    private static void registerUser(Scanner sc, Library library) {
+        System.out.print("User ID: ");
         int id = sc.nextInt();
         sc.nextLine();
-
-        System.out.print("Nome: ");
-        String nome = sc.nextLine();
-
-        biblioteca.cadastrarUsuario(new Usuario(id, nome));
-        System.out.println("Usuário cadastrado com sucesso!");
+        System.out.print("Name: ");
+        String name = sc.nextLine();
+        library.registerUser(new User(id, name));
+        System.out.println("User registered successfully!");
     }
 
-    private static void emprestarLivro(Scanner sc, Biblioteca biblioteca) {
-        System.out.print("ID do livro: ");
+    private static void borrowBook(Scanner sc, Library library) {
+        System.out.print("Book ID: ");
         int id = sc.nextInt();
-
-        boolean sucesso = biblioteca.emprestarLivro(id);
-
-        if (sucesso) {
-            System.out.println("Livro emprestado com sucesso!");
+        boolean success = library.borrowBook(id);
+        if (success) {
+            System.out.println("Book borrowed successfully!");
         } else {
-            System.out.println("Não foi possível emprestar o livro.");
+            System.out.println("Could not borrow the book.");
         }
     }
 
-    private static void devolverLivro(Scanner sc, Biblioteca biblioteca) {
-        System.out.print("ID do livro: ");
+    private static void returnBook(Scanner sc, Library library) {
+        System.out.print("Book ID: ");
         int id = sc.nextInt();
-
-        boolean sucesso = biblioteca.devolverLivro(id);
-
-        if (sucesso) {
-            System.out.println("Livro devolvido com sucesso!");
+        boolean success = library.returnBook(id);
+        if (success) {
+            System.out.println("Book returned successfully!");
         } else {
-            System.out.println("Não foi possível devolver o livro.");
+            System.out.println("Could not return the book.");
         }
     }
 
-    private static void listarLivros(Biblioteca biblioteca) {
-        System.out.println("\nLivros da Biblioteca:");
-        for (Livro livro : biblioteca.listarLivros()) {
-            System.out.println(livro);
+    private static void listBooks(Library library) {
+        System.out.println("\nLibrary Books:");
+        for (Book book : library.listBooks()) {
+            System.out.println(book);
         }
     }
 }
