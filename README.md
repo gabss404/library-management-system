@@ -1,32 +1,33 @@
-# 📚 Sistema de Gerenciamento de Biblioteca
+# 📚 Library Management System
 
-Sistema de gerenciamento de biblioteca desenvolvido em **Java**, aplicando **conceitos avançados de Orientação a Objetos (POO)**. O projeto simula o funcionamento de uma biblioteca real, permitindo cadastro de usuários, livros e controle de empréstimos.
-
----
-
-## ⚡ Funcionalidades principais
-
-- 📖 **Gerenciamento de livros:** cadastro de livros com ID, título e autor.  
-- 👤 **Cadastro de usuários:** registro de usuários com ID e nome.  
-- 🏷️ **Empréstimos e devoluções:** controle do status de cada livro (disponível/emprestado).  
-- 📃 **Listagem completa:** consulta rápida de todos os livros e seu status atual.  
-
-💡 Possível melhoria: implementar histórico de empréstimos e notificações de atraso, aproximando o projeto de uma aplicação real de mercado.
+Library management system built with **Java**, applying **advanced Object-Oriented Programming (OOP) concepts**. The project simulates the operation of a real library, allowing user registration, book management, and loan control.
 
 ---
 
-## 🛠 Tecnologias utilizadas
+## ⚡ Key Features
 
-- **Linguagem:** Java  
-- **Paradigma:** Programação Orientada a Objetos (POO)  
-- **Execução:** Aplicação via console (CLI)  
+- 📖 **Book management:** register books with ID, title, and author.
+- 👤 **User registration:** register users with ID and name.
+- 🏷️ **Loans and returns:** track each book's status (available/borrowed).
+- 📃 **Full listing:** quickly view all books and their current status.
 
-💡 Possível melhoria: transformar em aplicação gráfica (JavaFX) ou web (Spring Boot + Thymeleaf/React) para mostrar habilidades full-stack.
+💡 Possible improvement: implement a loan history and overdue notifications, bringing the project closer to a real-world market application.
 
 ---
 
-## 🚀 Como rodar
+## 🛠 Technologies Used
 
-1. Clone o repositório:  
+- **Language:** Java
+- **Paradigm:** Object-Oriented Programming (OOP)
+- **Execution:** Console application (CLI)
+
+💡 Possible improvement: turn it into a graphical (JavaFX) or web application (Spring Boot + Thymeleaf/React) to showcase full-stack skills.
+
+---
+
+## 🚀 How to Run
+
+1. Clone the repository:
 ```bash
-git clone https://github.com/gabss404/biblioteca.git 
+git clone https://github.com/gabss404/library-management-system.git
+```
